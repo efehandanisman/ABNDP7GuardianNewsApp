@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">ABNDP7GuardianNewsApp</string>
+    <string name="no_internet_connection">No connection :/</string>
+    <string name="no_news"> No facebook related news found! </string>
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">News Settings</string>
+    <string name="sections" translatable="false">section</string>
+    <string name="page_size" translatable="false">page-size</string>
+    <string name="order_by" translatable="false">order-by</string>
+    <string name="api_key" translatable="false">api-key</string>
+
+    <string name="settings_section_label">Section</string>
+    <string name="settings_section_key" translatable="false">section</string>
+    <string name="settings_section_default" translatable="false">@string/settings_section_by_allsections_value</string>
+
+    <string name="settings_section_by_allsections_label">All sections</string>
+    <string name="settings_section_by_allsections_value" translatable="false">All sections</string>
+
+    <string name="settings_section_by_technology_label">Technology</string>
+    <string name="settings_section_by_technology_value" translatable="false">technology</string>
+
+    <string name="settings_section_by_science_label">Science</string>
+    <string name="settings_section_by_science_value" translatable="false">science</string>
+
+    <string name="settings_section_by_politics_label">Politics</string>
+    <string name="settings_section_by_politics_value" translatable="false">politics</string>
+
+    <string name="settings_section_by_lifeandstyle_label">Life and Style</string>
+    <string name="settings_section_by_lifeandstyle_value" translatable="false">lifeandstyle</string>
+
+
+    <!-- Strings For Order-By Preference -->
+    <string name="settings_order_by_label">Order by</string>
+    <string name="settings_order_by_key" translatable="false">order_by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_most_recent_value</string>
+
+    <!-- Label for order by newest option -->
+    <string name="settings_order_by_most_recent_label">Newest</string>
+    <string name="settings_order_by_most_recent_value" translatable="false">newest</string>
+
+    <!-- Label for order by oldest option -->
+    <string name="settings_order_by_least_recent_label">Least recent</string>
+    <string name="settings_order_by_least_recent_value" translatable="false">least recent</string>
+
+
+</resources>
