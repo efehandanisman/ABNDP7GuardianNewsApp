@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class News extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<NewsClass>> {
-    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?q=facebook&api-key=test&show-tags=contributor";
+    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?q=facebook&api-key=00f4f78d-4618-44f1-87f0-82d18cd0ce33&show-tags=contributor";
     private NewsAdapter mAdapter;
     private TextView mEmptyStateTextView;
     private static final int NEWS_LOADER_ID = 1;
@@ -76,19 +76,16 @@ public class News extends AppCompatActivity implements LoaderManager.LoaderCallb
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String section  = sharedPrefs.getString(
                 getString(R.string.settings_section_key),
-                getString(R.string.settings_section_default)
-        );
-        String orderBy  = sharedPrefs.getString(
-                getString(R.string.settings_order_by_key),
-                getString(R.string.settings_order_by_default)
+                getString(R.string.api_key)
         );
 
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter(getString(R.string.api_key), GUARDIAN_API_KEY);
-        uriBuilder.appendQueryParameter(getString(R.string.sections), section);
-        uriBuilder.appendQueryParameter(getString(R.string.order_by), orderBy);
+
+        if (!section.equals(getString(R.string.api_key))) {
+            uriBuilder.appendQueryParameter(getString(R.string.settings_section_key), section);
+        }
 
         return new NewsLoader(this, uriBuilder.toString());
     }

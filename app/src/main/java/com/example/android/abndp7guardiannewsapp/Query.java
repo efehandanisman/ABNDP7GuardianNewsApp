@@ -139,23 +139,26 @@ public final class Query {
                 // Get a single earthquake at position i within the list of earthquakes
                 JSONObject currentNews = NewsArray.getJSONObject(i);
 
-                String sectionName = currentNews.optString("sectionName");
+                String sectionName = currentNews.getString("sectionName");
 
-                String webTitle = currentNews.optString("webTitle");
-
-                String date = currentNews.optString("webPublicationDate");
+                String articleTitle = currentNews.getString("webTitle");
+                if(articleTitle.contains("|")){
+                    String[] arrayString = articleTitle.split("\\|");
+                    articleTitle = arrayString[0].trim(); //
+                }
+                String date = currentNews.getString("webPublicationDate");
                 date = formatDate(date);
-                String url = currentNews.optString("webUrl");
+                String url = currentNews.getString("webUrl");
                 JSONArray tags = currentNews.getJSONArray("tags");
 
                 String articleAuthor;
                 if(tags.length()!=0) {
                     JSONObject tagsObject = tags.getJSONObject(0);
-                    articleAuthor = tagsObject.optString("webTitle");
+                    articleAuthor = tagsObject.getString("webTitle");
                 } else articleAuthor = "No author, this is just a news";
                 // Create a new {@link Earthquake} object with the magnitude, location, time,
                 // and url from the JSON response.
-                NewsClass newEntry = new NewsClass(webTitle, sectionName, articleAuthor, url, date);
+                NewsClass newEntry = new NewsClass(articleTitle, sectionName, articleAuthor, url, date);
                 newsList.add(newEntry);
             }
 
