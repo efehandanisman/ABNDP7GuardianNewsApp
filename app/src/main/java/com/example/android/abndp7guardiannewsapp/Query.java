@@ -52,7 +52,6 @@ public final class Query {
     }
 
 
-
     private static URL createUrl(String stringUrl) {
         URL url = null;
         try {
@@ -142,7 +141,7 @@ public final class Query {
                 String sectionName = currentNews.getString("sectionName");
 
                 String articleTitle = currentNews.getString("webTitle");
-                if(articleTitle.contains("|")){
+                if (articleTitle.contains("|")) {
                     String[] arrayString = articleTitle.split("\\|");
                     articleTitle = arrayString[0].trim(); //
                 }
@@ -152,7 +151,7 @@ public final class Query {
                 JSONArray tags = currentNews.getJSONArray("tags");
 
                 String articleAuthor;
-                if(tags.length()!=0) {
+                if (tags.length() != 0) {
                     JSONObject tagsObject = tags.getJSONObject(0);
                     articleAuthor = tagsObject.getString("webTitle");
                 } else articleAuthor = "No author, this is just a news";

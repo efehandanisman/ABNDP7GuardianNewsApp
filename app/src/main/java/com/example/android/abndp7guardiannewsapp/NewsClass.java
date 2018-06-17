@@ -38,5 +38,7 @@ public class NewsClass {
         return mDate;
     }
 
-    public String getAuthor() { return mAuthor; }
+    public String getAuthor() {
+        return mAuthor;
+    }
 }

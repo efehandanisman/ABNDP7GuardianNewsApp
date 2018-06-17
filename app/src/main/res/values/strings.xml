@@ -6,24 +6,30 @@
     <string name="settings_title">News Settings</string>
     <string name="api_key" translatable="false">api-key</string>
 
-    <string name="settings_section_label">Section</string>
-    <string name="settings_section_key" translatable="false">sectionName</string>
-    <string name="settings_section_default" translatable="false">All</string>
+    <string name="settings_filter_by_label">Show news by</string>
+    <string name="settings_section_key" translatable="false">sectionId</string>
+    <string name="settings_section_default" translatable="false">@string/setting_show_all_sections_key_value</string>
 
+    <string name="setting_show_all_sections_label">Different News</string>
+    <string name="setting_show_all_sections_key_value">api-key</string>
 
     <string name="settings_section_by_technology_label">Technology</string>
     <string name="settings_section_by_technology_value" translatable="false">technology</string>
 
     <string name="settings_section_by_opinion_label">Opinion</string>
-    <string name="settings_section_by_opinion_value" translatable="false">opinion</string>
+    <string name="settings_section_by_opinion_value" translatable="false">commentisfree</string>
 
     <string name="settings_section_by_politics_label">Politics</string>
     <string name="settings_section_by_politics_value" translatable="false">politics</string>
 
-    <string name="settings_section_by_world_news_label">World News</string>
-    <string name="settings_section_by_world_news_value" translatable="false">worldnews</string>
+    <string name="settings_section_by_media_label">Media</string>
+    <string name="settings_section_by_media_value" translatable="false">media</string>
 
+    <string name="settings_section_by_world_news_label">World news</string>
+    <string name="settings_section_by_world_news_value" translatable="false">world</string>
 
+    <string name="settings_section_by_stage_label">Stage</string>
+    <string name="settings_section_by_stage_value" translatable="false">stage</string>
 
 
 </resources>

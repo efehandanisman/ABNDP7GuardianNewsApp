@@ -3,6 +3,7 @@ package com.example.android.abndp7guardiannewsapp;
 /**
  * Created by Efehan on 11.6.2018.
  */
+
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
@@ -29,8 +30,6 @@ public class News extends AppCompatActivity implements LoaderManager.LoaderCallb
     private NewsAdapter mAdapter;
     private TextView mEmptyStateTextView;
     private static final int NEWS_LOADER_ID = 1;
-    private static final String GUARDIAN_API_KEY = "00f4f78d-4618-44f1-87f0-82d18cd0ce33";
-
 
 
     @Override
@@ -65,26 +64,26 @@ public class News extends AppCompatActivity implements LoaderManager.LoaderCallb
         } else {
             View loadingIndicator = findViewById(R.id.progress);
             loadingIndicator.setVisibility(View.GONE);
-            // Update empty state with no connection error message
+            // Update empty st ate with no connection error message
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
 
     }
 
+
     @Override
     public Loader<List<NewsClass>> onCreateLoader(int i, Bundle bundle) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String section  = sharedPrefs.getString(
-                getString(R.string.settings_section_key),
-                getString(R.string.api_key)
-        );
 
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-
-        if (!section.equals(getString(R.string.api_key))) {
-            uriBuilder.appendQueryParameter(getString(R.string.settings_section_key), section);
+        String section = sharedPrefs.getString(
+                getString(R.string.settings_section_key),
+                getString(R.string.settings_section_default)
+        );
+        if (!section.equals(getString(R.string.settings_section_default))) {
+            uriBuilder.appendQueryParameter("section", section);
         }
 
         return new NewsLoader(this, uriBuilder.toString());
@@ -125,6 +124,13 @@ public class News extends AppCompatActivity implements LoaderManager.LoaderCallb
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onCreateLoader(NEWS_LOADER_ID, null);
+
     }
 
 

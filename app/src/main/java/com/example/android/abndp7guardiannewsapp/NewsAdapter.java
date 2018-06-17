@@ -1,4 +1,5 @@
 package com.example.android.abndp7guardiannewsapp;
+
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +22,6 @@ public class NewsAdapter extends ArrayAdapter<NewsClass> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         NewsClass news = getItem(position);
-
 
 
         // Check if the existing view is being reused, otherwise inflate the view
